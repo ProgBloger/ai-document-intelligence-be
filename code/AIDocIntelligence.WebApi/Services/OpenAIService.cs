@@ -144,7 +144,7 @@ namespace AIDocIntelligence.WebApi.Services
         public async Task<float[]> GetEmbeddingsAsync(object data, CancellationToken cancellationToken)
         {
             var endpoint = "https://oai-ai-doc-intelligence-eus.openai.azure.com/";
-            // TODO: Add some key
+            var key = "BJ1mNSPT607asKzVk5HNeMmX4K9ZJkZbWDTrT6VDuJpAZoD1VaO0JQQJ99BAACYeBjFXJ3w3AAABACOGaCyu";
             var clientOptions = new OpenAIClientOptions
             {
                 Endpoint = new Uri(endpoint),
