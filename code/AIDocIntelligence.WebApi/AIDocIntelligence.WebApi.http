@@ -1,0 +1,6 @@
+@AIDocIntelligence.WebApi_HostAddress = http://localhost:5290
+
+GET {{AIDocIntelligence.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
