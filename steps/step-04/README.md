@@ -2,32 +2,16 @@
 
 [Previous step](../step-03/README.md) - [Next step](../step-05/README.md)
 
-## Step 4 - Create the AKS (Azure Kubernetes Service) resource in your Azure subscription
+## Step 4 - Create Azure Container Registry
 
-1. Find Kubernetes services in the Azure portal search:
+1. Find Cntainer Registry in the Azure portal search:
 
-![finding kubernetes services](sshot-4-1.png)
+![finding container registry](sshot-4-1.png)
 
-2. Click "Create" and select "Create a Kubernetes cluster":
+2. Click **Create**, select the resource group `rg-ai-doc-intelligence-gwc`, and name the registry `acrAiDocIntelligenceGwc` for easy identification.
 
-![creating kubernetes services](sshot-4-2.png)
+![creating container registry](sshot-4-2.png)
 
-3. Setup the `aks-cloud-native-app-we` name  and configuration:
-
-![setup configuration and name](sshot-4-3.png)
-
-![creating kubernetes services](sshot-4-4.png)
-
-4. Select D2s_v3 for the node size and configure 3 nodes with manual scaling (subject to change):
-
-![creating kubernetes services](sshot-4-5.png)
-
-![creating kubernetes services](sshot-4-6.png)
-
-![creating kubernetes services](sshot-4-7.png)
-
-![creating kubernetes services](sshot-4-8.png)
-
-No additional changes needed; complete the wizard to create the cluster
+No additional changes needed; complete the wizard to create the registry
 
 [Previous step](../step-03/README.md) - [Next step](../step-05/README.md)

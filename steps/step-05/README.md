@@ -2,48 +2,32 @@
 
 [Previous step](../step-04/README.md) - [Next step](../step-06/README.md)
 
-## Step 5 - Create the ACR (Azure Container Registry) resource in your Azure subscription
+## Step 5 - Deploy the Backend API (with Blob Storage & Key Vault integration)
 
-### Create the container registry
+1. Ensure Docker is running on your machine.  
 
-1. Search for "Container Registries" in the Azure portal:
+2. Open the Web API project in Visual Studio Code, right-click the **Dockerfile**, and select **Build Image...** from the context menu.
 
-![finding container regestries](sshot-5-1.png)
+![building the docker image](sshot-5-1.png)
 
-2. Specify the container registry name and region:
+3. When prompted, name the image `aidocintelligence-be:latest` and press **Enter**.
 
-```
-acrCloudNativeAppWE
-```
+![selecting the image name](sshot-5-2.png)
 
-![creating container regestries](sshot-5-2.png)
+4. In the Docker extenstion of the visual studio code login into the azure container registry if needed
 
-No further changes needed; complete the wizard to create the container registry.
+![login to container registry](sshot-5-3.png)
 
-### Link the container registry to Kubernetes
+5. Right-click the backend image, select Push, then follow the prompts to choose your Azure subscription and container registry to push the image.
 
-You are going to grant the Kubernetes cluster access to the container registry to push and pull Docker images
+![pushing image to container registry](sshot-5-4.png)
 
-1. Run the command from the Visual Studio Code terminal to grant an AKS cluster access to an ACR:
+![selecting container registry](sshot-5-5.png)
 
-```
-az aks update -g <resource-group> -n <aks-name> --attach-acr <acr-name>
-```
+6. After pushing the image, go to your container registry in the Azure Portal, search for **Repositories**, and confirm that the image named `aidocintelligence-be` appears in the list.
 
-```
-az aks update -g rg-cloud-native-app-west-europe -n aks-cloud-native-app-we --attach-acr acrCloudNativeAppWE
-```
+![navigating to container registry](sshot-5-6.png)
 
-2. In Visual Studio Code, open Kubernetes from the Activity Bar and select your cluster in the Azure Cloud pane:
-
-![merge kubernetes cluster into local kubeconfig](sshot-5-3.png)
-
-3. Right-click your Kubernetes cluster and merge it into your local Kubeconfig:
-
-![merge kubernetes cluster into local kubeconfig](sshot-5-4.png)
-
-4. Set your Kubernetes cluster as the current cluster in the Clusters pane:
-
-![set Kubernetes cluster as current](sshot-5-5.png)
+![expected image in container registry](sshot-5-7.png)
 
 [Previous step](../step-04/README.md) - [Next step](../step-06/README.md)

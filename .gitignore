@@ -59,3 +59,25 @@ code/wwwroot/lib/
 code/wwwroot/dist/
 
 # Documentation folder (steps/) should be committed, so no ignores there.
+
+
+# Build artifacts
+**/bin/
+**/obj/
+*.exe
+*.dll
+*.pdb
+
+# Visual Studio folders
+.vs/
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+
+# NuGet packages (optional if you restore them)
+**/packages/
+
+# Publish output
+publish/

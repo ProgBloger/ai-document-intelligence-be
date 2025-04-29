@@ -40,7 +40,8 @@ This guide helps you to build a Cloud Native Application that consists of a numb
 - [Step 01](steps/step-01/README.md) - Create the Resource Group
 - [Step 02](steps/step-02/README.md) - Set Up Azure Key Vault
 - [Step 03](steps/step-03/README.md) - Create Storage Account with Azure Blob Storage
-- [Step 04](steps/step-04/README.md) - Deploy the Backend API (with Blob Storage & Key Vault integration)
+- [Step 04](steps/step-04/README.md) - Create Azure Container Registry
+- [Step 05](steps/step-04/README.md) - Deploy the Backend API (with Blob Storage & Key Vault integration)
 - [Step 05](steps/step-05/README.md) - Deploy the Frontend UI (with Key Vault integration)
 - [Step 06](steps/step-06/README.md) - Create and Deploy Azure Function
 - [Step 07](steps/step-07/README.md) - Connect Azure Function to Blob Storage (with Key Vault)
