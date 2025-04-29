@@ -1,0 +1,61 @@
+# Ignore Visual Studio temporary files, build results, and
+# user-specific files
+
+## Build Folders (Visual Studio, MSBuild)
+code/bin/
+code/obj/
+
+# User-specific files
+code/*.user
+code/*.suo
+code/*.userosscache
+code/*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# ASP.NET specific
+code/App_Data/
+
+# Logs
+code/*.log
+
+# Rider / JetBrains
+.idea/
+
+# NuGet Packages
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Backup & crash dump files
+*.bak
+*.swp
+*.tmp
+*.tmp
+
+# IIS Express
+code/.vs/
+code/.vscode/
+code/.vsconfig
+code/*.dbmdl
+
+# Publish output
+code/publish/
+
+# Test results
+TestResults/
+*.TestResults
+
+# npm packages (if you have any frontend parts)
+code/node_modules/
+
+# Others you might want to ignore
+code/wwwroot/lib/
+code/wwwroot/dist/
+
+# Documentation folder (steps/) should be committed, so no ignores there.
