@@ -9,10 +9,17 @@ using ProcessImage.Common;
 
 namespace ProcessImage
 {
-    public static class FormRecognizerActivities
+    public class FormRecognizerActivities
     {
+        private readonly SecretProvider _secretProvider;
+
+        public FormRecognizerActivities(SecretProvider secretProvider)
+        {
+            _secretProvider = secretProvider;
+        }
+
         [Function(nameof(ProcessWithFormRecognizer))]
-        public static async Task<OcrResultEntity> ProcessWithFormRecognizer(
+        public async Task<OcrResultEntity> ProcessWithFormRecognizer(
             [ActivityTrigger] string blobName, 
             FunctionContext executionContext)
         {
@@ -21,9 +28,10 @@ namespace ProcessImage
             try
             {
                 logger.LogInformation($"C# Blob trigger function Processed blob\n Name: {blobName}");
+                
+                string storageConnStr = await _secretProvider.GetSecretAsync("AzureStorageConnectionString");
 
-                string connectionString = Environment.GetEnvironmentVariable("AIDocIntelligenceStorage");
-                var blobServiceClient = new BlobServiceClient(connectionString);
+                var blobServiceClient = new BlobServiceClient(storageConnStr);
                 var containerClient = blobServiceClient.GetBlobContainerClient(ResourceNames.PassportsContainerName);
                 var blobClient = containerClient.GetBlobClient(blobName);
 
@@ -33,9 +41,9 @@ namespace ProcessImage
                 await blobDownload.Content.CopyToAsync(seekableStream);
 
                 seekableStream.Position = 0;
-
-                var endpoint = Environment.GetEnvironmentVariable("FORM_RECOGNIZER_ENDPOINT");
-                var apiKey = Environment.GetEnvironmentVariable("FORM_RECOGNIZER_KEY");
+                
+                var endpoint = await _secretProvider.GetSecretAsync("FORM_RECOGNIZER_ENDPOINT");
+                var apiKey = await _secretProvider.GetSecretAsync("FORM_RECOGNIZER_KEY");
 
                 var client = new DocumentAnalysisClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
 

@@ -2,29 +2,15 @@
 
 [Previous step](../step-07/README.md) - [Next step](../step-09/README.md)
 
-## Step 8 - Create an ASP.NET Core WebApi and deploy it to Kubernetes
+## Step 8 - Set Up Azure AI Form Recognizer
 
-1. Create a YAML script to configure a Kubernetes service for the ASP.NET Core WebApi:
+**1.** In the Azure Portal, use the search bar to look for **Form Recognizer** and select it from the results.
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: webapi
-spec:
-  selector:
-    app: webapi
-  ports:
-  - port: 8080
-    targetPort: 8080
-```
+![navigating to form recognizer blade](sshot-8-1.png)
 
-2. Apply it using the Visual Studio Code command palette:
+**2.** Select your resource group, choose the **Germany West Central** region, name the instance `fr-ai-doc-intelligence-gwc`, select the **Free (F0)** tier, then click **Review + Create** to provision the Form Recognizer.
 
-![applying yaml to kubernetes](sshot-8-1.png)
+![form recognizer basics](sshot-8-2.png)
 
-3. Check the Kubernetes Activity pane and locate your newly created service within the Network node:
-
-![finding deployed webapi in kubernetes](sshot-8-2.png)
 
 [Previous step](../step-07/README.md) - [Next step](../step-09/README.md)

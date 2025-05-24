@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIDocIntelligence.WebApi", "AIDocIntelligence.WebApi.csproj", "{74890571-CA8A-CDF1-4204-D9CC62B43677}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessImage", "ProcessImage.csproj", "{0E097927-BCDF-AD0D-2591-EEBA065C46A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74890571-CA8A-CDF1-4204-D9CC62B43677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74890571-CA8A-CDF1-4204-D9CC62B43677}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74890571-CA8A-CDF1-4204-D9CC62B43677}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74890571-CA8A-CDF1-4204-D9CC62B43677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E097927-BCDF-AD0D-2591-EEBA065C46A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E097927-BCDF-AD0D-2591-EEBA065C46A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E097927-BCDF-AD0D-2591-EEBA065C46A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E097927-BCDF-AD0D-2591-EEBA065C46A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A5AFD2F6-3F85-48E9-B194-9308F6ED577E}
+		SolutionGuid = {3F4D6604-321B-4498-9C3F-F5474257C560}
 	EndGlobalSection
 EndGlobal

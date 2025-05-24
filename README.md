@@ -29,9 +29,7 @@ Install the following extensions:
 - [Azure Account 0.11.2](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 - [Azure CLI Tools 0.5.0](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Docker 1.22.1](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-- [Kubernetes 1.3.10](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools)
-- [Kubernetes Support 0.1.9](https://marketplace.visualstudio.com/items?itemName=ipedrazas.kubernetes-snippets)
-- [Azure Kubernetes Service](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools)
+
 
 ## Workshop
 
@@ -41,19 +39,19 @@ This guide helps you to build a Cloud Native Application that consists of a numb
 - [Step 02](steps/step-02/README.md) - Set Up Azure Key Vault
 - [Step 03](steps/step-03/README.md) - Create Storage Account with Azure Blob Storage
 - [Step 04](steps/step-04/README.md) - Create Azure Container Registry
-- [Step 05](steps/step-04/README.md) - Deploy the Backend API (with Blob Storage & Key Vault integration)
-- [Step 05](steps/step-05/README.md) - Deploy the Frontend UI (with Key Vault integration)
-- [Step 06](steps/step-06/README.md) - Create and Deploy Azure Function
-- [Step 07](steps/step-07/README.md) - Connect Azure Function to Blob Storage (with Key Vault)
+- [Step 05](steps/step-05/README.md) - Deploy the Backend API (with Blob Storage & Key Vault integration)
+- [Step 06](steps/step-06/README.md) - Deploy the Frontend UI (with Key Vault integration)
+- [Step 07](steps/step-07/README.md) - Create and Deploy Azure Function
 - [Step 08](steps/step-08/README.md) - Set Up Azure AI Form Recognizer
-- [Step 09](steps/step-09/README.md) - Save Parsed Data to Blob Storage
-- [Step 10](steps/step-10/README.md) - Load Parsed Data in Backend (with Key Vault)
-- [Step 11](steps/step-11/README.md) - Implement the Editing Interface in Backend
-- [Step 12](steps/step-12/README.md) - Set Up Azure OpenAI GPT Model
-- [Step 13](steps/step-13/README.md) - Integrate GPT Model with Backend (with Key Vault)
-- [Step 14](steps/step-14/README.md) - Save Verified Data (Stub DB)
-- [Step 15](steps/step-15/README.md) - Create Azure Cosmos DB with Embeddings
-- [Step 16](steps/step-16/README.md) - Set Up Embeddings Model
-- [Step 17](steps/step-17/README.md) - Store Embeddings in Cosmos DB (with Key Vault)
-- [Step 18](steps/step-18/README.md) - Process GPT Responses in Backend
+- [Step 09](steps/step-09/README.md) - Set Up Azure AI Form Recognizer
+- [Step 10](steps/step-10/README.md) - Save Parsed Data to Blob Storage
+- [Step 11](steps/step-11/README.md) - Load Parsed Data in Backend (with Key Vault)
+- [Step 12](steps/step-12/README.md) - Implement the Editing Interface in Backend
+- [Step 13](steps/step-13/README.md) - Set Up Azure OpenAI GPT Model
+- [Step 14](steps/step-14/README.md) - Integrate GPT Model with Backend (with Key Vault)
+- [Step 15](steps/step-15/README.md) - Save Verified Data (Stub DB)
+- [Step 16](steps/step-16/README.md) - Create Azure Cosmos DB with Embeddings
+- [Step 17](steps/step-17/README.md) - Set Up Embeddings Model
+- [Step 18](steps/step-18/README.md) - Store Embeddings in Cosmos DB (with Key Vault)
+- [Step 19](steps/step-19/README.md) - Process GPT Responses in Backend
 

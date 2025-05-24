@@ -2,101 +2,64 @@
 
 [Previous step](../step-06/README.md) - [Next step](../step-08/README.md)
 
-## Step 7 - Expose the ASP.NET Core WebApi as a network service
+## Step 7 - Create and Deploy Azure Function
 
-1. Move to the parent directory of the WorkerService folder, then execute `dotnet new webapi -n WebApi` to create a Web API project:
-
-![creating web api project](sshot-7-1.png)
-
-2. Open the newly created WebApi folder in Visual Studio Code.
-
-3. Rename WeatherForecast to Status and update the API to return only the current machine name:
-
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.MapGet("/status", () =>
-{
-    return Environment.MachineName;
-})
-.WithName("Status")
-.WithOpenApi();
-
-app.Run();
+**1.** Navigate to the `ProcessImage` folder in your terminal and run the command:
 
 ```
-
-4. Edit the `launchSettings.json` file to update the web API application's port to `8080`:
-
-![changing the port number](sshot-7-2.png)
-
-### Building the WebApi Docker image
-
-1. Just like in step 02, add a Dockerfile using the Visual Studio Code command palette, selecting the ASP.NET Core application platform for Linux without optional Docker Compose files:
-
-![generating docker files](sshot-7-3.png)
-
-2. Right-click the Dockerfile and select "Build Image":
-
-![creating web api image](sshot-7-4.png)
-
-3. From the Docker Activity pane in Visual Studio Code, push the built image to your Azure Container Registry:
-
-![pushing web api image](sshot-7-5.png)
-
-![web api image in container registry](sshot-7-6.png)
-
-### Deploying WebApi to Kubernetes
-
-1. Similar to step 06, create a Kubernetes deployment to deploy your WebApi container with 3 replicas, ensuring three Pods are always running:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: webapi
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: webapi
-  template:
-    metadata:
-      labels:
-        app: webapi
-    spec:
-      containers:
-      - name: webapi
-        image: acrcloudnativeappwe.azurecr.io/webapi:latest
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 8080
+code .
 ```
 
-2. Apply the deployment script using the Visual Studio Code command palette:
+![azure function workspace](sshot-7-1.png)
 
-![deploying web api to kubernetes](sshot-7-7.png)
+This will open the Azure Function project in Visual Studio Code.
 
-3. In the Kubernetes Activity Bar, locate your running Pods:
 
-![web api deployed to kubernetes](sshot-7-8.png)
+Click the **Azure Function** icon in the Azure tab in Visual Studio Code, then select **Deploy to Azure** from the dropdown menu.
 
+![azure function icon](sshot-7-2.png)
+
+**2.** When prompted, select the folder containing your Azure Function project — the folder is named `ProcessImage`.
+
+![azure function folder](sshot-7-3.png)
+
+**3.** Choose **Create new Function App...**, and name it:
+
+```
+fa-ai-doc-intelligence-gwc
+```
+
+![create azure function app](sshot-7-4.png)
+![azure function app name](sshot-7-5.png)
+
+**4.** When prompted to select a location, choose **Germany West Central** for this example.
+
+![selecting location](sshot-7-6.png)
+
+**5.** Select the .Net stack
+
+![.net stack selection](sshot-7-7.png)
+
+**6.** Select **Managed Identity** as the authentication method, since the function will access secrets from Azure Key Vault and needs appropriate permissions.
+
+![selecting secrets access](sshot-7-8.png)
+
+**7.** If you see the error like *"The subscription is not registered to use namespace 'Microsoft.Web'"*, fix it by running the following commands in your terminal:
+
+```
+az provider register --namespace Microsoft.Web
+
+az provider register --namespace Microsoft.Insights
+```
+
+![ms web not registered](sshot-7-9.png)
+
+Then retry the deployment steps
+
+**8.** Go to the **Function App** section in the Azure Portal and verify that `fa-ai-doc-intelligence-gwc` has been successfully deployed and is in a **Running** state.
+
+![function app navigation](sshot-7-10.png)
+
+![verifying function app deployment](sshot-7-11.png)
 
 [Previous step](../step-06/README.md) - [Next step](../step-08/README.md)

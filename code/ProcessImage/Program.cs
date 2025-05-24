@@ -8,6 +8,7 @@ var host = new HostBuilder()
     {
         services.AddApplicationInsightsTelemetryWorkerService();
         services.ConfigureFunctionsApplicationInsights();
+        var keyVaultUrl = Environment.GetEnvironmentVariable("KeyVaultUrl");
     })
     .Build();
 

@@ -1,4 +1,6 @@
 using Azure.Data.Tables;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.DurableTask;
@@ -23,34 +25,6 @@ namespace ProcessImage
             await context.CallActivityAsync("StoreInTableStorage", passportOcrEntity);
 
             return passportOcrEntity;
-        }
-
-        [Function(nameof(StoreInTableStorage))]
-        public static async Task StoreInTableStorage([ActivityTrigger] OcrResultEntity entity, FunctionContext executionContext)
-        {
-            ILogger logger = executionContext.GetLogger("StoreInTableStorage");
-            logger.LogInformation("Storing key phrases in Azure Table Storage.");
-
-            try
-            {
-                var storageConnectionString = Environment.GetEnvironmentVariable("AIDocIntelligenceStorage");
-
-                TableServiceClient serviceClient = new TableServiceClient(storageConnectionString);
-                TableClient tableClient = serviceClient.GetTableClient("OcrResults");
-
-                await tableClient.CreateIfNotExistsAsync();
-
-                await tableClient.AddEntityAsync(entity);
-
-                logger.LogInformation("OCR result saved to Table Storage.");
-            }
-            catch (Exception ex)
-            {
-                logger.LogError($"Exception caught in ocr saving: {ex.Message}");
-                logger.LogError(ex.ToString());
-            }
-
-            await Task.CompletedTask;
         }
 
         [Function("PassportProcessingOrchestrator_HttpStart")]
