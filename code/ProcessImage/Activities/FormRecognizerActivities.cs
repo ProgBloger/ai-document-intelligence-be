@@ -9,11 +9,11 @@ using ProcessImage.Common;
 
 namespace ProcessImage
 {
-    public class FormRecognizerActivities
+    public class FormRecognizerActivity
     {
         private readonly SecretProvider _secretProvider;
 
-        public FormRecognizerActivities(SecretProvider secretProvider)
+        public FormRecognizerActivity(SecretProvider secretProvider)
         {
             _secretProvider = secretProvider;
         }
@@ -42,8 +42,8 @@ namespace ProcessImage
 
                 seekableStream.Position = 0;
                 
-                var endpoint = await _secretProvider.GetSecretAsync("FORM_RECOGNIZER_ENDPOINT");
-                var apiKey = await _secretProvider.GetSecretAsync("FORM_RECOGNIZER_KEY");
+                var endpoint = await _secretProvider.GetSecretAsync("FormRecognizerEndpoint");
+                var apiKey = await _secretProvider.GetSecretAsync("FormRecognizerKey");
 
                 var client = new DocumentAnalysisClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
 

@@ -15,7 +15,7 @@ namespace ProcessImage
 
         [Function(nameof(TriggerPassportProcessingFunction))]
         public async Task Run(
-            [BlobTrigger("passports/{name}", Connection = "AIDocIntelligenceStorage")] Stream blobStream,
+            [BlobTrigger("passports/{name}", Connection = "AzureStorageConnectionString")] Stream blobStream,
             string name,
             [DurableClient] DurableTaskClient starter,
             CancellationToken cancellationToken)

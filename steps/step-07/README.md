@@ -62,4 +62,89 @@ Then retry the deployment steps
 
 ![verifying function app deployment](sshot-7-11.png)
 
+---
+
+### Adding Azure Storage Connection String to the Azure Function Trigger
+
+To allow the Azure Function to react to new blob uploads, it needs the **connection string** from Key Vault set in its **environment variables**.
+
+---
+
+**9.** Go to your **Azure Key Vault**, navigate to **Secrets**, and click on the secret named `AzureStorageConnectionString`.
+Then, click on the **current version** of the secret.
+
+![key vault](sshot-7-12.png)
+![storage con string secret](sshot-7-13.png)
+
+---
+
+**10.** Copy the **Secret Identifier** value — this is the full URL pointing to the secret.
+
+![secret identifier](sshot-7-14.png)
+
+---
+
+**11.** In the Azure Portal, go to your **Function App**, then navigate to:
+**Settings > Environment variables**, and click **Add**.
+
+![navigating to function app](sshot-7-15.png)
+![func app env variables](sshot-7-16.png)
+
+---
+
+**12.** Add a new environment variable:
+
+* **Name:**
+
+  ```
+  AzureStorageConnectionString
+  ```
+* **Value:**
+  Paste the copied URL in this format:
+
+  ```
+  @Microsoft.KeyVault(SecretUri=<Your_Secret_Identifier_URL>)
+  ```
+
+Example:
+
+```
+@Microsoft.KeyVault(SecretUri=https://kvaidocintelligencegwc.vault.azure.net/secrets/AzureStorageConnectionString/12345678912345678962321b4195edac)
+```
+
+---
+
+**13.** Click **Apply** in the variable editor, then again on the **Environment Variables** page to save changes.
+
+---
+
+### Adding the Managed Identity to Azure Function and Assigning Key Vault Access
+
+To allow the Azure Function to securely read secrets from Key Vault, you need to enable its **Managed Identity** and assign it the **Key Vault Secrets User** role.
+
+---
+
+**14.** In your **Function App**, go to the **Identity** section in the left menu.
+Under the **System assigned** tab, switch the status to **On**, then click **Save** and confirm.
+
+![enabling managed identity](sshot-7-17.png)
+
+---
+
+**15.** Once the managed identity is enabled, wait for it to be created.
+Then, click the **Azure role assignments** button that appears.
+
+![managed identity role button](sshot-7-18.png)
+
+---
+
+**16.** On the **Azure role assignments** page, click **Add role assignment**.
+Select the **Key Vault** as the scope, choose the **Key Vault Secrets User** role, and click **Save**.
+
+![selecting secrets user role for key vault](sshot-7-19.png)
+
+---
+
+✅ The Azure Function is now fully set up to read secrets from Key Vault and trigger on new files uploaded to Blob Storage.
+
 [Previous step](../step-06/README.md) - [Next step](../step-08/README.md)

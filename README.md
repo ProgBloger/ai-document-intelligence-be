@@ -54,4 +54,3 @@ This guide helps you to build a Cloud Native Application that consists of a numb
 - [Step 17](steps/step-17/README.md) - Set Up Embeddings Model
 - [Step 18](steps/step-18/README.md) - Store Embeddings in Cosmos DB (with Key Vault)
 - [Step 19](steps/step-19/README.md) - Process GPT Responses in Backend
-

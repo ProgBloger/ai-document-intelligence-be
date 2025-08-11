@@ -9,11 +9,11 @@ using ProcessImage.Common;
 
 namespace ProcessImage
 {
-    public class StorageActivities
+    public class StorageActivity
     {
         private readonly SecretProvider _secretProvider;
 
-        public StorageActivities(SecretProvider secretProvider)
+        public StorageActivity(SecretProvider secretProvider)
         {
             _secretProvider = secretProvider;
         }

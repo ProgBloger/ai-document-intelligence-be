@@ -90,4 +90,6 @@ In the next steps, we will first create an **Azure Container Apps environment**,
 
 ![test of the aca](sshot-5-21.png)
 
+## TODO: Add the story about the azure key vault secret connection string
+
 [Previous step](../step-04/README.md) - [Next step](../step-06/README.md)
